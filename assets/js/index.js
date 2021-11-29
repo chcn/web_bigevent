@@ -26,7 +26,7 @@ function getUserInfo() {
     //   Authorization: localStorage.getItem('token')||''
     // },
     success: function (reg) {
-      console.log(reg);
+      // console.log(reg);
       if (reg.status !== 0) return layer.msg('获取用户信息失败')
       renderAvatar(reg.data)
     }
@@ -44,7 +44,7 @@ function renderAvatar(user) {
   if (user.user_pic) {
     //如果有图片头像,就显示图片头像，隐藏文字头像
     strAva.hide()
-    imgAva.show()
+    imgAva.prop('src', user.user_pic).show()
   } else {
     // 没有图片头像，就渲染文字头像，隐藏图片头像，文字头像用昵称第一个字母
     imgAva.hide()
